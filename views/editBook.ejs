@@ -1,0 +1,47 @@
+<%- include("layout/header") %>
+
+    <div class="container">
+        <div class="row">
+            <div class="co-lg-6 mx-auto mt-4">
+                <div class="card shodow">
+                    <div class="card-header bg-success">
+                        <h3 class="text-light">Edit Book (<%= book.BookTitle  %>)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="/update/<%= book._id %>" method="post" id="add-form" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="BookTitle">BookTitle</label>
+                                <input type="text" name="BookTitle" class="form-control form-control-lg"
+                                    placeholder="Enter title" value="<%= book.BookTitle  %>" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="AuthorName">AuthorName</label>
+                                <input type="text" name="AuthorName" class="form-control form-control-lg"
+                                    placeholder="Enter author" value="<%= book.AuthorName  %>" required />
+                            </div>
+
+                            <!-- <div class="mb-3">
+                            <label for="page">Pages</label>
+                            <input type="text" name="page" class="form-control form-control-lg" placeholder="Enter page" required />
+                        </div> -->
+                            <div class="mb-3">
+                                <label for="Image" class="form-label">Select image</label>
+                                <input type="file" name="Image" class="form-control form-control-lg" required />
+                                <img src="<%= book.Image  %>" width="100" class="img-thumbnail mt-1"  alt="">
+                            </div>
+                            <input type="hidden" name="old_image" value="<%= book.Image  %>">
+                            <div class="mb-3">
+                                <label for="pdf" class="form-label">Select pdf</label>
+                                <input type="file" name="pdf" class="form-control form-control-lg" required />
+                            </div>
+                            <div class="mb-3 d-grid">
+                                <input type="submit" name="submit" value="Update book" class="btn btn-success btn-lg">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("./layout/footer") %>
